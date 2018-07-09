@@ -1,17 +1,15 @@
-<!-- TOC -->
-
 - [DMP流程测试](#dmp%E6%B5%81%E7%A8%8B%E6%B5%8B%E8%AF%95)
     - [一.lps收数统计](#%E4%B8%80lps%E6%94%B6%E6%95%B0%E7%BB%9F%E8%AE%A1)
         - [分类型前的处理](#%E5%88%86%E7%B1%BB%E5%9E%8B%E5%89%8D%E7%9A%84%E5%A4%84%E7%90%86)
         - [utmId对应的redis数据](#utmid%E5%AF%B9%E5%BA%94%E7%9A%84redis%E6%95%B0%E6%8D%AE)
         - [LPS_LandingView](#lpslandingview)
-            - [查重](#%E6%9F%A5%E9%87%8D)
-            - [有utmId，入库lps_main td_lps td_main](#%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps-tdmain)
-                - [url参数：tp\nid\utm](#url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutm)
-                - [url参数：tp\nid\utm\uid\lid\v](#url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutmuidlidv)
-            - [无utmid, 入库 lps_main td_main](#%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain-tdmain)
-                - [url参数：tp\nid](#url%E5%8F%82%E6%95%B0%EF%BC%9Atpnid)
-                - [url参数：tp\nid\uid\lid\v](#url%E5%8F%82%E6%95%B0%EF%BC%9Atpniduidlidv)
+            - [(1).查重](#1%E6%9F%A5%E9%87%8D)
+            - [(2) 有utmId，入库lps_main td_lps td_main](#2-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps-tdmain)
+                - [[1].url参数：tp\nid\utm](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutm)
+                - [[2].url参数：tp\nid\utm\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutmuidlidv)
+            - [(3)无utmid, 入库 lps_main td_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain-tdmain)
+                - [[1].url参数：tp\nid](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnid)
+                - [[2].url参数：tp\nid\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpniduidlidv)
         - [LPS_LandingStay](#lpslandingstay)
             - [(1) 有utmId，入库lps_main td_lps](#1-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\utm\st](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atputmst)
@@ -65,8 +63,6 @@
         - [行为日志(TD_Clicks)](#%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97tdclicks)
             - [(1).td日志](#1td%E6%97%A5%E5%BF%97)
             - [(2).入库td_main](#2%E5%85%A5%E5%BA%93tdmain)
-
-<!-- /TOC -->
 
 # DMP流程测试
 ## 一.lps收数统计
@@ -142,9 +138,9 @@
 ```
 
 ### LPS_LandingView
-#### 查重
-#### 有utmId，入库lps_main td_lps  td_main
-##### url参数：tp\nid\utm
+#### (1).查重
+#### (2) 有utmId，入库lps_main td_lps  td_main
+##### [1].url参数：tp\nid\utm
 
 - url: http://127.0.0.1:9009/lps/a.gif?tp=1&nid=test&utm=1530668431031d862af9f81a
 
@@ -256,7 +252,7 @@ select * from td_main where ts = 1530670760;
 
 select * from td_lps where ts =1530670760;
 
-##### url参数：tp\nid\utm\uid\lid\v 
+##### [2].url参数：tp\nid\utm\uid\lid\v 
 
 - 先删除浏览器cookie，url: http://127.0.0.1:9009/lps/a.gif?tp=1&nid=test001&utm=1530668431031d862af9f81a2&uid=99007&lid=99006&v=99008
 - lps日志
@@ -364,8 +360,8 @@ select * from td_main where ts = 1530671743;
 
 select * from td_lps where ts =1530671743;
 
-#### 无utmid, 入库 lps_main   td_main
-##### url参数：tp\nid
+#### (3)无utmid, 入库 lps_main   td_main
+##### [1].url参数：tp\nid
 - 先删除浏览器cookie，url:http://127.0.0.1:9009/lps/a.gif?tp=1&nid=test002
 - lps日志
 ```json
@@ -470,7 +466,7 @@ select * from lps_main where ts = 1530672059;
 
 select * from td_main where ts = 1530672059;
 
-##### url参数：tp\nid\uid\lid\v 
+##### [2].url参数：tp\nid\uid\lid\v 
 - 先删除浏览器cookie，url:http://127.0.0.1:9009/lps/a.gif?tp=1&nid=test003&uid=99007&lid=99006&v=99008
 - lps日志
 ```json
