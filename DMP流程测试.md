@@ -1,8 +1,8 @@
 - [DMP流程测试](#dmp%E6%B5%81%E7%A8%8B%E6%B5%8B%E8%AF%95)
     - [一.lps收数统计](#%E4%B8%80lps%E6%94%B6%E6%95%B0%E7%BB%9F%E8%AE%A1)
-        - [1.分类型前的处理](#1%E5%88%86%E7%B1%BB%E5%9E%8B%E5%89%8D%E7%9A%84%E5%A4%84%E7%90%86)
-        - [2.utmId对应的redis数据](#2utmid%E5%AF%B9%E5%BA%94%E7%9A%84redis%E6%95%B0%E6%8D%AE)
-        - [3.LPS_LandingView](#3lpslandingview)
+        - [分类型前的处理](#%E5%88%86%E7%B1%BB%E5%9E%8B%E5%89%8D%E7%9A%84%E5%A4%84%E7%90%86)
+        - [utmId对应的redis数据](#utmid%E5%AF%B9%E5%BA%94%E7%9A%84redis%E6%95%B0%E6%8D%AE)
+        - [LPS_LandingView](#lpslandingview)
             - [(1).查重](#1%E6%9F%A5%E9%87%8D)
             - [(2) 有utmId，入库lps_main td_lps td_main](#2-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps-tdmain)
                 - [[1].url参数：tp\nid\utm](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutm)
@@ -10,14 +10,14 @@
             - [(3)无utmid, 入库 lps_main td_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain-tdmain)
                 - [[1].url参数：tp\nid](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnid)
                 - [[2].url参数：tp\nid\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpniduidlidv)
-        - [4.LPS_LandingStay](#4lpslandingstay)
+        - [LPS_LandingStay](#lpslandingstay)
             - [(1) 有utmId，入库lps_main td_lps](#1-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\utm\st](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atputmst)
                 - [[2].url参数：tp\utm\st\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atputmstuidlidv)
             - [(3)无utmid, 入库 lps_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain)
                 - [[1].url参数：tp\st](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpst)
                 - [[2].url参数：tp\nid\st\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidstuidlidv)
-        - [5.LPS_LandingLinkClick](#5lpslandinglinkclick)
+        - [LPS_LandingLinkClick](#lpslandinglinkclick)
             - [(1).查重](#1%E6%9F%A5%E9%87%8D)
             - [(2) 有utmId，入库lps_main td_lps](#2-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\nid\utm](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutm)
@@ -25,7 +25,7 @@
             - [(3)无utmid, 入库 lps_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain)
                 - [[1].url参数：tp\nid](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnid)
                 - [[2].url参数：tp\nid\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpniduidlidv)
-        - [6.LPS_PointerClick](#6lpspointerclick)
+        - [LPS_PointerClick](#lpspointerclick)
             - [(1).查重](#1%E6%9F%A5%E9%87%8D)
             - [(2) 有utmId，入库lps_main td_lps](#2-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\nid\utm\en](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutmen)
@@ -33,7 +33,7 @@
             - [(3)无utmid, 入库 lps_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain)
                 - [[1].url参数：tp\nid\en](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpniden)
                 - [[2].url参数：tp\nid\uid\lid\v\en](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpniduidlidven)
-        - [7.LPS_PointerVideo](#7lpspointervideo)
+        - [LPS_PointerVideo](#lpspointervideo)
             - [(1).查重](#1%E6%9F%A5%E9%87%8D)
             - [(2) 有utmId，入库lps_main td_lps](#2-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\nid\utm\en](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidutmen)
@@ -41,32 +41,32 @@
             - [(3)无utmid, 入库 lps_main](#3%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain)
                 - [[1].url参数：tp\nid\en](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpniden)
                 - [[2].url参数：tp\nid\en\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpnidenuidlidv)
-        - [8.LPS_PointerVideoStay](#8lpspointervideostay)
+        - [LPS_PointerVideoStay](#lpspointervideostay)
             - [(1) 有utmId，入库lps_main td_lps](#1-%E6%9C%89utmid%EF%BC%8C%E5%85%A5%E5%BA%93lpsmain-tdlps)
                 - [[1].url参数：tp\utm\en\vdt](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atputmenvdt)
                 - [[2].url参数：tp\utm\en\vdt\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atputmenvdtuidlidv)
             - [(2)无utmid, 入库 lps_main](#2%E6%97%A0utmid-%E5%85%A5%E5%BA%93-lpsmain)
                 - [[1].url参数：tp\en\vdt](#1url%E5%8F%82%E6%95%B0%EF%BC%9Atpenvdt)
                 - [[2].url参数：tp\en\vdt\uid\lid\v](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpenvdtuidlidv)
-        - [9.LPS_JSTransfer js脚步调用](#9lpsjstransfer-js%E8%84%9A%E6%AD%A5%E8%B0%83%E7%94%A8)
+        - [LPS_JSTransfer js脚步调用](#lpsjstransfer-js%E8%84%9A%E6%AD%A5%E8%B0%83%E7%94%A8)
             - [(1).处理逻辑](#1%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91)
             - [(2).url参数：tp\en\utm](#2url%E5%8F%82%E6%95%B0%EF%BC%9Atpenutm)
     - [二.td统计](#%E4%BA%8Ctd%E7%BB%9F%E8%AE%A1)
-        - [1.bi (TD_Bi)](#1bi-tdbi)
+        - [bi (TD_Bi)](#bi-tdbi)
             - [(1).HandleMsg日志](#1handlemsg%E6%97%A5%E5%BF%97)
             - [(2) TDLog](#2-tdlog)
             - [(3).入库td_lps td_main](#3%E5%85%A5%E5%BA%93tdlps-tdmain)
-        - [2. 业务数据 (TD_Business)](#2-%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE-tdbusiness)
+        - [业务数据 (TD_Business)](#%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE-tdbusiness)
             - [(1).TDBusinessMsg日志](#1tdbusinessmsg%E6%97%A5%E5%BF%97)
             - [(2) TDLog](#2-tdlog)
             - [(3).入库td_main](#3%E5%85%A5%E5%BA%93tdmain)
-        - [3.行为日志(TD_Clicks)](#3%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97tdclicks)
+        - [行为日志(TD_Clicks)](#%E8%A1%8C%E4%B8%BA%E6%97%A5%E5%BF%97tdclicks)
             - [(1).td日志](#1td%E6%97%A5%E5%BF%97)
             - [(2).入库td_main](#2%E5%85%A5%E5%BA%93tdmain)
 
 # DMP流程测试
 ## 一.lps收数统计
-### 1.分类型前的处理
+### 分类型前的处理
 
 (1). 检查参数合法性
 
@@ -105,7 +105,7 @@
 
 (9).下面按类型处理
 
-### 2.utmId对应的redis数据
+### utmId对应的redis数据
 
 ```json
 {
@@ -137,7 +137,7 @@
 
 ```
 
-### 3.LPS_LandingView
+### LPS_LandingView
 #### (1).查重
 #### (2) 有utmId，入库lps_main td_lps  td_main
 ##### [1].url参数：tp\nid\utm
@@ -571,7 +571,7 @@ select * from lps_main where ts = 1530672285;
 
 select * from td_main where ts = 1530672285;
 
-### 4.LPS_LandingStay
+### LPS_LandingStay
 #### (1) 有utmId，入库lps_main td_lps 
 
 没有清空浏览器cookies，所以uuid 的值和上面的uuid一样。
@@ -745,7 +745,7 @@ select * from lps_main where ts = 1530673100;
 
 select * from lps_main where ts = 1530673226;
 
-### 5.LPS_LandingLinkClick 
+### LPS_LandingLinkClick 
 
 #### (1).查重
 
@@ -927,7 +927,7 @@ select * from lps_main where ts = 1530673667;
 
 select * from lps_main where ts = 1530673759;
 
-### 6.LPS_PointerClick 
+### LPS_PointerClick 
 #### (1).查重
 
 #### (2) 有utmId，入库lps_main td_lps
@@ -1116,7 +1116,7 @@ select * from lps_main where ts = 1530674229;
 
 select * from event_mapping where id =126656804357916 and `value`="pointerClick20180704004"
 
-### 7.LPS_PointerVideo 
+### LPS_PointerVideo 
 #### (1).查重
 
 #### (2) 有utmId，入库lps_main td_lps
@@ -1307,7 +1307,7 @@ select * from lps_main where ts = 1530675066;
 
 select * from event_mapping where id =12379681894373 and `value`="pointerVideo20180704004"
 
-### 8.LPS_PointerVideoStay 
+### LPS_PointerVideoStay 
 #### (1) 有utmId，入库lps_main td_lps
 
 ##### [1].url参数：tp\utm\en\vdt
@@ -1496,7 +1496,7 @@ select * from lps_main where ts = 1530676098;
 
 select * from event_mapping where id =70322671598767 and `value`="pointerVideoStay20180704004";
 
-### 9.LPS_JSTransfer  js脚步调用
+### LPS_JSTransfer  js脚步调用
 
 #### (1).处理逻辑
 - 生成eventid; 
@@ -1510,7 +1510,7 @@ select * from event_mapping where id =22549877616260 and value="jsTransfer"
 
 ## 二.td统计
 
-### 1.bi  (TD_Bi)
+### bi  (TD_Bi)
 
 #### (1).HandleMsg日志
 ```json
@@ -1634,7 +1634,7 @@ select * from td_lps where ts=1530758003 and landing_page_id = 6604011;
 select * from bi_mapping where id in (93535954831855,69668588532898,131699993768474,239501549786422,45987890529851,
 142127123595050,82421897857485,58432242197977,136064277200012,67982601925585);
 
-### 2. 业务数据 (TD_Business)
+### 业务数据 (TD_Business)
 
 #### (1).TDBusinessMsg日志
 ```json
@@ -1728,7 +1728,7 @@ select * from bi_mapping where id in (93535954831855,69668588532898,131699993768
 
 select * from td_main where ts in (1530760798);
 
-### 3.行为日志(TD_Clicks)
+### 行为日志(TD_Clicks)
 
 #### (1).td日志
 ```json
