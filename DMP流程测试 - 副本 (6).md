@@ -8,7 +8,7 @@
         - [LPS_LandingView](#lps_landingview)
             - [查重](#查重)
             - [有utmId，入库lps_main td_lps  td_main](#有utmid入库lps_main-td_lps--td_main)
-                - [url参数：tp\nid\utm](#url参数tp\nid\utm)
+                - [url参数：tp、nid、utm](#url参数tpnidutm)
                 - [url参数：tp\nid\utm\uid\lid\v](#url参数tp\nid\utm\uid\lid\v)
             - [无utmid, 入库 lps_main   td_main](#无utmid-入库-lps_main---td_main)
                 - [url参数：tp\nid](#url参数tp\nid)
@@ -23,7 +23,7 @@
         - [LPS_LandingLinkClick](#lps_landinglinkclick)
             - [查重](#查重-1)
             - [有utmId，入库lps_main td_lps](#有utmid入库lps_main-td_lps-1)
-                - [url参数：tp\nid\utm](#url参数tp\nid\utm-1)
+                - [url参数：tp\nid\utm](#url参数tp\nid\utm)
                 - [url参数：tp\nid\utm\uid\lid\v](#url参数tp\nid\utm\uid\lid\v-1)
             - [无utmid, 入库 lps_main](#无utmid-入库-lps_main-1)
                 - [url参数：tp\nid](#url参数tp\nid-1)
@@ -145,7 +145,7 @@
 ### LPS_LandingView
 #### 查重
 #### 有utmId，入库lps_main td_lps  td_main
-##### url参数：tp\nid\utm
+##### url参数：tp、nid、utm
 
 - url: http://127.0.0.1:9009/lps/a.gif?tp=1&nid=test&utm=1530668431031d862af9f81a
 
